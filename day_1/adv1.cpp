@@ -35,7 +35,6 @@ int main(void)
         data_proc.replace(index + 1, spelled_digits[x].length() - 2, to_string((x + 1)));
       }
     }
-    cout << data_proc << "\n";
     try
     {
       data_proc = regex_replace(data_proc, regex(R"([\D])"), "");
@@ -53,8 +52,6 @@ int main(void)
       cout << "wtf"
            << "\n";
     }
-
-    cout << final_sender << "\n";
   }
   cout << final_val << "\n";
 }
