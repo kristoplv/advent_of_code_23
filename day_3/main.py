@@ -3,8 +3,10 @@
 f = open("C:/Users/KristoMarleen/Documents/advent_of_code_23/day_3/input.txt", "r")
 lines = []
 numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
-symbols =  '""!@#$%^&*()-+?_=,<>/""'
+symbols =  '*'
 summa = 0
+
+
 for line in f:
     lines.append(line)
 for i in range(len(lines)):
