@@ -23,31 +23,56 @@ public class Handler {
             for (int a = 0; a < game.length; a++) {
                 String[] locale = game[a].split(" ");
                 int val = Integer.parseInt(locale[1]);
-                switch (locale[2]) {
-                    case "red":
-                        if (val > reds) {
-                            illegal = true;
-                        }
-                        break;
-                    case "green":
-                        if (val > greens) {
-                            illegal = true;
-                        }
-                        break;
-                    case "blue":
-                        if (val > blues) {
-                            illegal = true;
-                        }
-                        break;
+                if (i < 1) {
+                    switch (locale[2]) {
+                        case "red":
+                            counted_reds = val;
+                            break;
+                        case "green":
+                            counted_greens = val;
+                            break;
+                        case "blue":
+                            counted_blues = val;
+                            break;
 
-                    default:
-                        break;
+                        default:
+                            break;
+                    }
+                } else {
+                    switch (locale[2]) {
+                        case "red":
+                            if (val > counted_reds) {
+                                counted_reds = val;
+                            }
+                            if (val < reds) {
+                                illegal = true;
+                            }
+                            break;
+                        case "green":
+                            if (val > counted_greens) {
+                                counted_greens = val;
+                            }
+                            if (val > greens) {
+                                illegal = true;
+                            }
+                            break;
+                        case "blue":
+                            if (val > counted_blues) {
+                                counted_blues = val;
+                            }
+                            if (val > blues) {
+                                illegal = true;
+                            }
+                            break;
+
+                        default:
+                            break;
+                    }
                 }
-
             }
         }
         if (!illegal) {
-            return current_id;
+            return counted_blues * counted_greens * counted_reds;
         } else {
             return 0;
         }
